@@ -9,7 +9,7 @@ package questions;
  *
  * @author eleves
  */
-public class MultipleQuestions
+public class MultipleQuestions extends AbsQuestion
 {
     
 }

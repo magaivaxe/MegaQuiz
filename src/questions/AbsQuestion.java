@@ -11,5 +11,7 @@ package questions;
  */
 public abstract class AbsQuestion
 {
-    
+    //Fields
+    public String question;
+    public String response;
 }
