@@ -21,7 +21,7 @@ public class MyFileReader
 {
     //Fields
     private String URL_FILE = "/Users/eleves/Desktop/POOII_TP1/canada.txt";
-    private final int SIZE = 2;
+    private int SIZE = 2;
     //Contructor
     public MyFileReader(){}
     
@@ -30,7 +30,7 @@ public class MyFileReader
      * 1- The method try to read by BufferedReader according to the address;<br>
      * 2- In the loop it read each line, set the elements objects and add Per
      * object to Per list;<br>
-     * @return an ArrayList type Per
+     * @return an ArrayList type Per.
      */
     public ArrayList<Per> listFromReader(){
         //Local objects
@@ -51,12 +51,10 @@ public class MyFileReader
         return toReturn;
     }
 
-    public void setURL(String URL)
-    {
-        this.URL_FILE = URL;
-    }
-    
-    
-    
+    public void setURL(String URL_FILE) {this.URL_FILE = URL_FILE;}
+
+    public int getSIZE() {return SIZE;}
+
+    public void setSIZE(int SIZE) {this.SIZE = SIZE;}
     
 }
