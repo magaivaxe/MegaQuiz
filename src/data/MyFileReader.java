@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class MyFileReader
 {
     //Fields
-    private String URL_FILE = "/Users/eleves/Desktop/POOII_TP1/canada.txt";
+    private String URL_FILE = "";
     private int SIZE = 2;
     //Contructor
     public MyFileReader(){}

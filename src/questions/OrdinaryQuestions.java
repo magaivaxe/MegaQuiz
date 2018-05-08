@@ -1,15 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package questions;
 
 /**
  *
- * @author eleves
+ * @author Marcos Gomes
  */
 public class OrdinaryQuestions extends AbsQuestion
 {
-    
+    private final String URL_FILE_OQ = 
+            "/Users/eleves/Desktop/POOII_TP1/fixes.txt";
+    /**
+     * Method to return the fixes questions
+     */
+    public void ordinaryQuestions(){
+        
+    }
+    /**
+     * Method to set the OrdinaryQuestions configurations.
+     */
+    private void settins(){
+        //Clear if exists data inside
+        listPer.clear();
+        //Ordinary questions path to fixes.txt
+        mfr.setURL(URL_FILE_OQ);
+        //Resturn list from reader
+        listPer = mfr.listFromReader();
+    }       
 }

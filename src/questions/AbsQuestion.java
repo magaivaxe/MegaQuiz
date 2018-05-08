@@ -5,6 +5,10 @@
  */
 package questions;
 
+import data.MyFileReader;
+import data.Per;
+import java.util.ArrayList;
+
 /**
  *
  * @author eleves
@@ -14,4 +18,8 @@ public abstract class AbsQuestion
     //Fields
     public String question;
     public String response;
+    //Objects
+    public ArrayList<Per> listPer = new ArrayList<>();
+    public MyFileReader mfr = new MyFileReader();
+    public Choice choice = new Choice();
 }
