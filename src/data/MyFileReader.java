@@ -6,15 +6,13 @@
 package data;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
 /**
+ * Class to read the text files converse it to ArrayList.
  * 
- * @param URL_FILE - 
- * @param SIZE - 
  * @author Marcos Gomes
  */
 public class MyFileReader
