@@ -5,19 +5,22 @@
  */
 package mainPack;
 
+import data.MyFileReader;
+
 /**
  *
  * @author eleves
  */
 public class Main
 {
-
+    static MyFileReader mfr;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args)
     {
-        // TODO code application logic here
+        mfr = new MyFileReader();
+        System.out.println(mfr.listFromReader().get(0).getElementQuestion());
     }
     
 }
