@@ -9,17 +9,18 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Class to choice randomly the per
+ * Class to choice randomly per
  * @author Marcos Gomes
  */
-public class Choice extends Random
-{
+public class Choice extends Random {
     //Fields
     ArrayList<Integer> chooses;
+    Choice current;
     
     public Choice(){
         super();
         chooses = new ArrayList<>();
+        current = this;
     }
     
     /**

@@ -5,7 +5,7 @@
  */
 package mainPack;
 
-import data.MyFileReader;
+import dataApp.MyFileReader;
 
 /**
  *

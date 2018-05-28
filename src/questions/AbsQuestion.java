@@ -5,8 +5,8 @@
  */
 package questions;
 
-import data.MyFileReader;
-import data.Per;
+import dataApp.MyFileReader;
+import dataApp.Per;
 import java.util.ArrayList;
 
 /**
