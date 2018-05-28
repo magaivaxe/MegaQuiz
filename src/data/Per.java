@@ -6,7 +6,8 @@
 package data;
 
 /**
- *
+ * Save a per of: question and response from the file<br>
+ * that come from BufferedReader
  * @author eleves
  */
 public class Per
@@ -14,30 +15,19 @@ public class Per
     //Fields
     private String elementQuestion;
     private String elementResponse;
-    //Contructor
-
-    public Per()
-    {
-    }
-
-    public String getElementQuestion()
-    {
-        return elementQuestion;
-    }
+    
+    //Contructor void to call the objects
+    public Per() {}
+    
+    // getters and setters
+    public String getElementQuestion() { return elementQuestion;}
+    
+    public String getElementResponse() {return elementResponse;}
 
     public void setElementQuestion(String elementQuestion)
-    {
-        this.elementQuestion = elementQuestion;
-    }
-
-    public String getElementResponse()
-    {
-        return elementResponse;
-    }
+    { this.elementQuestion = elementQuestion;}
 
     public void setElementResponse(String elementResponse)
-    {
-        this.elementResponse = elementResponse;
-    }
+    { this.elementResponse = elementResponse;}
     
 }

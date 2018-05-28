@@ -19,7 +19,6 @@ public class MyFileReader
 {
     //Fields
     private String URL_FILE = "";
-    private int SIZE = 2;
     //Contructor
     public MyFileReader(){}
     
@@ -50,9 +49,5 @@ public class MyFileReader
     }
 
     public void setURL(String URL_FILE) {this.URL_FILE = URL_FILE;}
-
-    public int getSIZE() {return SIZE;}
-
-    public void setSIZE(int SIZE) {this.SIZE = SIZE;}
     
 }
