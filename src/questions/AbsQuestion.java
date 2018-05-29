@@ -5,6 +5,8 @@
  */
 package questions;
 
+import dataApp.Choice;
+import dataApp.KeyboardEntry;
 import dataApp.MyFileReader;
 import dataApp.Per;
 import java.util.ArrayList;
@@ -22,4 +24,5 @@ public abstract class AbsQuestion
     public ArrayList<Per> listPer = new ArrayList<>();
     public MyFileReader mfr = new MyFileReader();
     public Choice choice = new Choice();
+    public KeyboardEntry ke = new KeyboardEntry();
 }

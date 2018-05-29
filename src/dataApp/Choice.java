@@ -3,48 +3,48 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package questions;
+package dataApp;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Class to choice randomly per
- * @author Marcos Gomes
+ * Class to choice a randomly position for a Per ArrayList().
+ * @see #randomChoice(int).
+ * @author Marcos Gomes.
  */
 public class Choice extends Random {
     //Fields
-    ArrayList<Integer> chooses;
-    Choice current;
+    private ArrayList<Integer> chooses;
     
     public Choice(){
         super();
         chooses = new ArrayList<>();
-        current = this;
     }
-    
     /**
-     * 
+     * Method to return a random integer with sample size <i>vectorSize</i>
+     * that it don't repeat the number choose.<br>
+     * The number choose it will be added to a Array List where it will go
+     * checked by a loop and a <i>boolean</i> variable. If the number was
+     * already choose it will be select again.
      * @param vectorSize - vector size to set the random sample.
-     * @return an Integer number 
+     * @return an Integer number.
      */
     public int randomChoice(int vectorSize){
-        // Bool to check if the number was found
+        // Locals
         boolean found = false;
         int choosen = 0;
         int toReturn;
-        
+        // Finder loop
         while (!found) {
-            // Choice the number to return
+            // Random integer
             choosen = this.nextInt(vectorSize);
-            // Check if the number choose it was already choose
+            // Checker
             for (Integer c : chooses) {
                 if (c == choosen) {
                     break;
                 }else{
-                    // Add the choosen to chooses
                     chooses.add(choosen);
-                    // To loop exit
                     found = true;
                 }
             }
@@ -52,5 +52,4 @@ public class Choice extends Random {
         toReturn = choosen;
         return toReturn;
     }
-    
 }

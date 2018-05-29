@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class MyFileReader
 {
     //Fields
-    private String URL_FILE = "";
+    private String url_path = "";
     //Contructor
     public MyFileReader(){}
     
@@ -30,11 +30,11 @@ public class MyFileReader
      * @return an ArrayList type Per.
      */
     public ArrayList<Per> listFromReader(){
-        //Local objects
+        //Locals
         ArrayList<Per> toReturn = new ArrayList<>();
         Per per = new Per();
         //Try reader
-        try(BufferedReader br = new BufferedReader(new FileReader(URL_FILE))){
+        try(BufferedReader br = new BufferedReader(new FileReader(url_path))){
             String currentLine;
             //Loop to read lines
             while ((currentLine = br.readLine()) != null){
@@ -48,6 +48,6 @@ public class MyFileReader
         return toReturn;
     }
 
-    public void setURL(String URL_FILE) {this.URL_FILE = URL_FILE;}
+    public void setURL(String URL_FILE) {this.url_path = URL_FILE;}
     
 }

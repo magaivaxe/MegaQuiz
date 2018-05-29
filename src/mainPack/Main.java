@@ -20,6 +20,7 @@ public class Main
     public static void main(String[] args)
     {
         mfr = new MyFileReader();
+        mfr.setURL("/Users/sire_marcos/projects/java_netbeans/MegaQuiz/files/fixes.txt");
         System.out.println(mfr.listFromReader().get(0).getElementQuestion());
     }
     
