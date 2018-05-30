@@ -5,10 +5,17 @@ package questions;
  *
  * @author Marcos Gomes
  */
-public class OrdinaryQuestions extends AbsQuestion
+public class OrdinaryQuiz extends ABSQuestion
 {
     private final String URL_FILE_OQ = 
             "/Users/eleves/Desktop/POOII_TP1/fixes.txt";
+
+    public OrdinaryQuiz() {
+        super();
+    }
+    
+    
+    
     /**
      * Method to return the fixes questions
      */
@@ -16,7 +23,7 @@ public class OrdinaryQuestions extends AbsQuestion
         
     }
     /**
-     * Method to set the OrdinaryQuestions configurations.
+     * Method to set the OrdinaryQuiz configurations.
      */
     private void settins(){
         //Clear if exists data inside

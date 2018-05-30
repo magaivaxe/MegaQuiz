@@ -5,17 +5,17 @@
  */
 package questions;
 
-import dataApp.Choice;
-import dataApp.KeyboardEntry;
-import dataApp.MyFileReader;
-import dataApp.Per;
+import dataInput.Choice;
+import dataInput.KeyboardEntry;
+import dataInput.MyFileReader;
+import dataInput.Per;
 import java.util.ArrayList;
 
 /**
  *
  * @author eleves
  */
-public abstract class AbsQuestion
+public abstract class ABSQuestion
 {
     //Fields
     public String question;

@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package questions;
+package dataOutput;
 
 /**
  *
- * @author eleves
+ * @author sire_marcos
  */
-public class MultipleQuestions extends AbsQuestion
-{
+public abstract class ABSOutput {
     
 }

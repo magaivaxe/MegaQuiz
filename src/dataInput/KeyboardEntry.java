@@ -1,4 +1,4 @@
-package dataApp;
+package dataInput;
 
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;

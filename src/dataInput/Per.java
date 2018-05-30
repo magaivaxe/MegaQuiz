@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dataApp;
+package dataInput;
 
 /**
  * Save a per of: question and response from the file<br>

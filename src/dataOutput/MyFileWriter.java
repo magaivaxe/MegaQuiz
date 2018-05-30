@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mainPack;
+package dataOutput;
 
 /**
- * Show the MegaQuiz statements
+ *
  * @author sire_marcos
  */
-public class Statements {
+public class MyFileWriter {
     
 }
