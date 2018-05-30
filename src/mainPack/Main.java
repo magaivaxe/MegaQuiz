@@ -6,7 +6,7 @@
 package mainPack;
 
 import dataInput.MyFileReader;
-import dataOutput.Dates;
+import dataOutput.DateTime;
 
 /**
  *
@@ -15,17 +15,17 @@ import dataOutput.Dates;
 public class Main
 {
     static MyFileReader mfr;
-    static Dates d;
+    static DateTime d;
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
     {
         mfr = new MyFileReader();
-        d = new  Dates();
+        d = new DateTime();
         mfr.setURL("/Users/sire_marcos/projects/java_netbeans/MegaQuiz/files/fixes.txt");
-        System.out.println(mfr.listFromReader().get(0).getElementQuestion());
-        System.out.println(d.getCurrent_date());
+        System.out.println(mfr.perList().get(0).getElementQuestion());
+        System.out.println(d.getCurrentDate() +" " + d.getCurrentTime());
     }
     
 }

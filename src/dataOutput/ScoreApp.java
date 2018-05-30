@@ -1,11 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package dataOutput;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+
 
 /**
  * Class to return the game score
@@ -13,34 +12,55 @@ import java.util.Date;
  */
 public class ScoreApp {
     // Fields
-    private int score;
     private int hight_score;
-    private Date scoreDate;
     // Objects
-    private static ScoreApp current;
+    private String player;
+    private LocalDate date;
+    private LocalTime time;
     /**
-     * 
-     * @param hight_score : 
+     * Constructor to get and set values from the files and list
      */
-    public ScoreApp(int hight_score) {
-        this.hight_score = hight_score;
-        this.score = 0;
-        // To recall
-        current = this;
-    }
-    
-    // Setters
-    public void setScore() {
-        this.score++;
+    public ScoreApp() {}
+
+    public int getHight_score() {
+        return hight_score;
     }
 
-    public void setHight_score() {
-        // Conditions to set the high Score
-        if (this.score > this.hight_score) {
-            this.hight_score = this.score;
-        }
-        
+    public void setHight_score(int hight_score) {
+        this.hight_score = hight_score;
     }
+
+    public String getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(String player) {
+        this.player = player;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public LocalTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalTime time) {
+        this.time = time;
+    }
+    
+
+   
+    
+    
+    
+
+    
     
     
     

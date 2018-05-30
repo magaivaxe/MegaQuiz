@@ -17,12 +17,12 @@ import java.util.ArrayList;
  */
 public abstract class ABSQuestion
 {
-    //Fields
+    // Objects
     public String question;
     public String response;
-    //Objects
+    //
     public ArrayList<Per> listPer = new ArrayList<>();
-    public MyFileReader mfr = new MyFileReader();
+    public MyFileReader frIn = new MyFileReader();
     public Choice choice = new Choice();
     public KeyboardEntry ke = new KeyboardEntry();
 }

@@ -5,6 +5,7 @@
  */
 package dataInput;
 
+import dataOutput.ScoreApp;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -28,23 +29,29 @@ public class MyFileReader
      * 2- In the loop it read each line, set the elements objects and add Per
      * object to Per list;<br>
      * @return an ArrayList type Per.
+     * @throws java.lang.Exception
      */
-    public ArrayList<Per> listFromReader(){
+    public ArrayList<Per> perList() throws Exception {
         //Locals
         ArrayList<Per> toReturn = new ArrayList<>();
         Per per = new Per();
         //Try reader
-        try(BufferedReader br = new BufferedReader(new FileReader(url_path))){
-            String currentLine;
-            //Loop to read lines
-            while ((currentLine = br.readLine()) != null){
-                String [] line = currentLine.split(",");
-                per.setElementQuestion(line[0]);
-                per.setElementResponse(line[1]);
-                toReturn.add(per);
-            }
+        BufferedReader br = new BufferedReader(new FileReader(url_path));
+        String currentLine;
+        //Loop to read lines
+        while ((currentLine = br.readLine()) != null){
+            String [] line = currentLine.split(",");
+            per.setElementQuestion(line[0]);
+            per.setElementResponse(line[1]);
+            toReturn.add(per);
         }
-        catch (IOException e) {e.printStackTrace();}
+        return toReturn;
+    }
+    
+    public ArrayList<ScoreApp> scoreList(){
+        // Locals
+        ArrayList<ScoreApp> toReturn = new ArrayList();
+        
         return toReturn;
     }
 

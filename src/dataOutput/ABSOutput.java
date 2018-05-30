@@ -5,10 +5,14 @@
  */
 package dataOutput;
 
+import dataInput.MyFileReader;
+
 /**
  *
  * @author sire_marcos
  */
 public abstract class ABSOutput {
-    
+    // Objects
+    DateTime dateTime = new DateTime();
+    MyFileReader frOut = new MyFileReader();
 }
