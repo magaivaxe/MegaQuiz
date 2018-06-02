@@ -7,8 +7,8 @@ package dataInput;
 
 import dataOutput.ScoreApp;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -16,8 +16,7 @@ import java.util.ArrayList;
  * 
  * @author Marcos Gomes
  */
-public class MyFileReader
-{
+public class MyFileReader{
     //Fields
     private String url_path = "";
     //Contructor

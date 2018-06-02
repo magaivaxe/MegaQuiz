@@ -10,5 +10,13 @@ package dataOutput;
  * @author sire_marcos
  */
 public class MyFileWriter {
+    //Fields
+    
+    //Constructor
+    
+    
+    public void fileWriter(){
+        
+    }
     
 }

@@ -31,6 +31,6 @@ public class OrdinaryQuiz extends ABSQuestion
         //Ordinary questions path to fixes.txt
         frIn.setURL(URL_FILE_OQ);
         //Resturn list from reader
-        listPer = frIn.perList();
+        //listPer = frIn.perList();
     }       
 }

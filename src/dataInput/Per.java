@@ -10,8 +10,7 @@ package dataInput;
  * that come from BufferedReader
  * @author eleves
  */
-public class Per
-{
+public class Per{
     //Fields
     private String elementQuestion;
     private String elementResponse;
