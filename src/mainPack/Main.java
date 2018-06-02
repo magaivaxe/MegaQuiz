@@ -23,6 +23,7 @@ public class Main
      */
     public static void main(String[] args)
     {
+        hq = new HomeQuiz();
         hq.start();
         
         /*
