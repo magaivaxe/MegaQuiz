@@ -13,11 +13,11 @@ import java.util.Random;
  * @see #randomChoice(int).
  * @author Marcos Gomes.
  */
-public class Choice extends Random {
+public class RandomChoice extends Random {
     //Fields
     private ArrayList<Integer> chooses;
     
-    public Choice(){
+    public RandomChoice(){
         super();
         chooses = new ArrayList<>();
     }

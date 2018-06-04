@@ -29,8 +29,8 @@ public class OrdinaryQuiz extends ABSQuestion
         //Clear if exists data inside
         listPer.clear();
         //Ordinary questions path to fixes.txt
-        frIn.setURL(URL_FILE_OQ);
+        fileReader.setURL(URL_FILE_OQ);
         //Resturn list from reader
-        //listPer = frIn.perList();
+        //listPer = fileReader.perList();
     }       
 }
