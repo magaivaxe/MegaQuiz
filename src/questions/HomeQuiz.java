@@ -36,6 +36,7 @@ public class HomeQuiz extends ABSQuestion {
         }
     }
     
+    
     /**
      * Method to convert a string number to integer. If it isn't possible<br>
      * return false. If it is possible check the number range {@code 0 < n < 5}

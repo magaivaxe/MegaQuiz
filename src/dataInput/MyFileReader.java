@@ -59,9 +59,7 @@ public class MyFileReader{
         FalseResponses fr = new FalseResponses();
         //
         for (int i = 0; i < listPer.size(); i++) {
-            fr.setFalseResponse1();
-            fr.setFalseResponse2();
-            fr.setFalseResponse3();
+            
         }
         
         return toReturn;
