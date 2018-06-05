@@ -9,47 +9,51 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Class to choice a randomly position for a Per ArrayList().
- * @see #randomChoice(int).
+ * Class to do a random index ArrayList to choice the questions.
+ * @see #randomIndex(int)
  * @author Marcos Gomes.
  */
 public class RandomChoice extends Random {
-    //Fields
-    private ArrayList<Integer> chooses;
+    // Constructor
+    public RandomChoice(){super();}
     
-    public RandomChoice(){
-        super();
-        chooses = new ArrayList<>();
-    }
     /**
-     * Method to return a random integer with sample size <i>vectorSize</i>
-     * that it don't repeat the number choose.<br>
-     * The number choose it will be added to a Array List where it will go
-     * checked by a loop and a <i>boolean</i> variable. If the number was
-     * already choose it will be select again.
-     * @param vectorSize - vector size to set the random sample.
+     * Method to return a random index ArrayList from a sample ArrayList.<br>
+     * The index found is removed from the sample after and the size<br>
+     * decremented.
+     * @param listSize - Number of lines to set sample.
      * @return an Integer number.
      */
-    public int randomChoice(int vectorSize){
+    public ArrayList<Integer> randomIndex(int listSize){
         // Locals
         boolean found = false;
         int choosen = 0;
-        int toReturn;
-        // Finder loop
+        ArrayList<Integer> toReturn = new ArrayList<>();
+        ArrayList<Integer> sample = indexSample(listSize);
+        int size = sample.size();
+        // Loop to fill ramdom index list
         while (!found) {
-            // Random integer
-            choosen = this.nextInt(vectorSize);
-            // Checker
-            for (Integer c : chooses) {
-                if (c == choosen) {
-                    break;
-                }else{
-                    chooses.add(choosen);
-                    found = true;
-                }
-            }
+            choosen = this.nextInt(size);
+            toReturn.add(sample.get(choosen));
+            sample.remove(choosen);
+            size--;
+            // Exit condition
+            if (sample.isEmpty()) {found = true;}
         }
-        toReturn = choosen;
+        return toReturn;
+    }
+    
+    /**
+     * Method to fill a index list of size {@param listSize}
+     * @param listSize
+     * @return an integer ArrayList
+     */
+    private ArrayList<Integer> indexSample(int listSize){
+        // Locals
+        ArrayList<Integer> toReturn = new ArrayList<>();
+        for (int i = 0; i < listSize; i++) {
+            toReturn.add(i);
+        }
         return toReturn;
     }
 }

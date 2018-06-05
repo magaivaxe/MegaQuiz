@@ -5,11 +5,25 @@
  */
 package questions;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author eleves
+ * @author Marcos Gomes
  */
-public class MultipleQuiz extends ABSQuestion
-{
+public class MultipleQuiz extends ABSQuestion {
+    // Fields
     
+    // Constructor
+    public MultipleQuiz() { super(); }
+     
+    public void startMultiple(){
+        listPer.clear();
+        // Locals
+        listPer = fileReader.createPerList();
+        ArrayList<Integer> ramdomIndex = randomChoice.randomIndex(listPer.size());
+        // Clear the list before start
+        
+         
+    }
 }

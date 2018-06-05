@@ -1,6 +1,7 @@
 
 package questions;
 
+import dataInput.FalseResponses;
 import dataInput.RandomChoice;
 import dataInput.KeyboardEntry;
 import dataInput.MyFileReader;
@@ -18,25 +19,41 @@ public abstract class ABSQuestion {
     private String question;
     private String response;
     private String player;
+    public final String URL_CANADA = "";
+    public final String URL_USA = "";
+    public final String URL_COUNTRY_CAPITAL = "";
+    public final String URL_ORDINARY = "";
     // Objects
     public ArrayList<Per> listPer;
+    public ArrayList<FalseResponses> falseResponseses;
     public MyFileReader fileReader;
     public RandomChoice randomChoice;
     public KeyboardEntry entry;
     public Scanner scanner;
     public GameMsg msg;
+    public MultipleQuiz multipleQuiz;
+    public OrdinaryQuiz ordinaryQuiz;
     //Constructor
     public ABSQuestion(){
         listPer = new ArrayList<>();
+        falseResponseses = new ArrayList<>();
         fileReader = new MyFileReader();
         randomChoice = new RandomChoice();
         entry = new KeyboardEntry();
         scanner = new Scanner(System.in);
         msg = new GameMsg();
+        multipleQuiz = new MultipleQuiz();
+        ordinaryQuiz = new OrdinaryQuiz();
     }
     
-    public void print(String text){
-        System.out.println(text);
+    /**
+     * To print data on terminal.
+     * @param text - Text to print;
+     */
+    public void print(String text){ System.out.println(text);}
+    
+    public void msgError() {
+        print(msg.ERROR1 + msg.ERROR2);
     }
 
     public String getQuestion() { return question;}

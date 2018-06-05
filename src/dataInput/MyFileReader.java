@@ -7,20 +7,23 @@ package dataInput;
 
 import dataOutput.ScoreApp;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
 /**
  * Class to read the text files converse it to ArrayList.
- * 
  * @author Marcos Gomes
  */
 public class MyFileReader{
     //Fields
     private String url_path = "";
+    // Objects
+    private RandomChoice rc;
+    private Per per;
     //Contructor
-    public MyFileReader(){}
+    public MyFileReader(){
+        rc = new RandomChoice();
+    }
     
     /**
      * Method to read a text file line by line:<br>
@@ -28,25 +31,47 @@ public class MyFileReader{
      * 2- In the loop it read each line, set the elements objects and add Per
      * object to Per list;<br>
      * @return an ArrayList type Per.
-     * @throws java.lang.Exception
      */
-    public ArrayList<Per> perList() throws Exception {
+    public ArrayList<Per> createPerList() {
         //Locals
         ArrayList<Per> toReturn = new ArrayList<>();
         Per per = new Per();
         //Try reader
-        BufferedReader br = new BufferedReader(new FileReader(url_path));
-        String currentLine;
-        //Loop to read lines
-        while ((currentLine = br.readLine()) != null){
-            String [] line = currentLine.split(",");
-            per.setElementQuestion(line[0]);
-            per.setElementResponse(line[1]);
-            toReturn.add(per);
-        }
+        try(BufferedReader br = new BufferedReader(new FileReader(url_path))){
+            String currentLine;
+            //Loop to read lines
+            while ((currentLine = br.readLine()) != null){
+                String [] line = currentLine.split(",");
+                per.setElementQuestion(line[0]);
+                per.setElementResponse(line[1]);
+                toReturn.add(per);
+            }
+        } catch (Exception e) {}
+        
         return toReturn;
     }
     
+    public ArrayList<FalseResponses> createFalseRespList(){
+        // Locals
+        ArrayList<FalseResponses> toReturn = new ArrayList<>();
+        ArrayList<Per> listPer = createPerList();
+        ArrayList<Integer> indexRandom = rc.randomIndex(listPer.size());
+        FalseResponses fr = new FalseResponses();
+        //
+        for (int i = 0; i < listPer.size(); i++) {
+            fr.setFalseResponse1();
+            fr.setFalseResponse2();
+            fr.setFalseResponse3();
+        }
+        
+        return toReturn;
+    }
+        
+    
+    /**
+     * TO DO
+     * @return 
+     */
     public ArrayList<ScoreApp> scoreList(){
         // Locals
         ArrayList<ScoreApp> toReturn = new ArrayList();
