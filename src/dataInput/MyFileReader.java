@@ -67,7 +67,8 @@ public class MyFileReader extends ABSInput{
             int j = rd.nextInt(size);
             int k = rd.nextInt(size);
             
-            while (i == j || i == k || j == k) {                
+            while (i == j || i == k || j == k) {
+                // Conditions to assign values
                 if (i == j) { j = noEqualsIntegers(i, j, size); }
                 if (i == k) { k = noEqualsIntegers(i, k, size); }
                 if (j == k) { k = noEqualsIntegers(j, k, size); }
