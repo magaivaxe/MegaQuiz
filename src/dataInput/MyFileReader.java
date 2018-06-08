@@ -61,16 +61,17 @@ public class MyFileReader extends ABSInput{
         ArrayList<FalseResponse> toReturn = new ArrayList<>();
         FalseResponse fr = new FalseResponse();
         int size = listPer.size();
-        // Loop
+        //
         while (toReturn.size() < size) {
-            int i = rc.nextInt(size);
-            int j = rc.nextInt(size);
-            int k = rc.nextInt(size);
+            int i = rd.nextInt(size);
+            int j = rd.nextInt(size);
+            int k = rd.nextInt(size);
             
-            if (i == j) { j = noEqualInteger(i, j, size); }
-            if (i == k) { k = noEqualInteger(i, k, size); }
-            if (j == k) { k = noEqualInteger(j, k, size); }
-            
+            while (i == j || i == k || j == k) {                
+                if (i == j) { j = noEqualsIntegers(i, j, size); }
+                if (i == k) { k = noEqualsIntegers(i, k, size); }
+                if (j == k) { k = noEqualsIntegers(j, k, size); }
+            }
             fr.setFalseResponse1(listPer.get(i).getElementResponse());
             fr.setFalseResponse2(listPer.get(j).getElementResponse());
             fr.setFalseResponse3(listPer.get(k).getElementResponse());
@@ -79,22 +80,6 @@ public class MyFileReader extends ABSInput{
         }
         return toReturn;
     }
-    
-    /**
-     * Method to check if {@code x} and {@code y} are equals. If true <br>
-     * return a new {@code y} choose.
-     * @param x integer choose before
-     * @param y maybe an integer to choice
-     * @param size sample to choice
-     * @return a integer among size
-     */
-    private int noEqualInteger(int x, int y, int size){
-        while (x == y) {                    
-            y = rc.nextInt(size);
-        }
-        return y;
-    }
-        
     
     /**
      * TO DO

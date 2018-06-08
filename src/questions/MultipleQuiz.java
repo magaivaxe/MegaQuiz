@@ -17,13 +17,26 @@ public class MultipleQuiz extends ABSQuestion {
     // Constructor
     public MultipleQuiz() { super(); }
      
+    
     public void startMultiple(){
+        // Clear and fill the list before start
         listPer.clear();
-        // Locals
         listPer = fileReader.createPerList();
-        ArrayList<Integer> ramdomIndex = randomChoice.randomIndex(listPer.size());
-        // Clear the list before start
-        
+        // Locals
+        int size = listPer.size();
+        int current = 0;
+        ArrayList<Integer> iList = randomChoice.randomIndex(size);
+        // Questions loop
+        while (current < size) {
+            // Presentation
+            print("Question " + current + 1 + ": ");
+            // Question
+            print(listPer.get(iList.get(current)).getElementQuestion());
+            // Print possibles responses
+            
+            
+            current++;
+        }
          
     }
 }
