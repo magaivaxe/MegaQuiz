@@ -19,26 +19,28 @@ public class RandomChoice extends Random {
     
     /**
      * Method to return a random index ArrayList from a sample ArrayList.<br>
-     * The index found is removed from the sample after and the size<br>
+ The index ok is removed from the sample after and the size<br>
      * decremented.
      * @param listSize - Number of lines to set sample.
      * @return an Integer number.
      */
     public ArrayList<Integer> randomIndex(int listSize){
         // Locals
-        boolean found = false;
+        boolean ok = false;
         int choosen = 0;
         ArrayList<Integer> toReturn = new ArrayList<>();
         ArrayList<Integer> sample = indexSample(listSize);
         int size = sample.size();
         // Loop to fill ramdom index list
-        while (!found) {
-            choosen = this.nextInt(size);
-            toReturn.add(sample.get(choosen));
-            sample.remove(choosen);
-            size--;
+        while (!ok) {
+            try {
+                choosen = this.nextInt(size);
+                toReturn.add(sample.get(choosen));
+                sample.remove(choosen);
+            } catch (Exception e) {
+            }
             // Exit condition
-            if (sample.isEmpty()) {found = true;}
+            if (sample.isEmpty()) {ok = true;}
         }
         return toReturn;
     }

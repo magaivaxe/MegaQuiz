@@ -14,15 +14,14 @@ import java.util.ArrayList;
  * Class to read the text files converse it to ArrayList.
  * @author Marcos Gomes
  */
-public class MyFileReader{
+public class MyFileReader extends ABSInput{
     //Fields
     private String url_path = "";
     // Objects
-    private RandomChoice rc;
-    private Per per;
+    
     //Contructor
     public MyFileReader(){
-        rc = new RandomChoice();
+        super();
     }
     
     /**
@@ -51,18 +50,49 @@ public class MyFileReader{
         return toReturn;
     }
     
-    public ArrayList<FalseResponses> createFalseRespList(){
+    /**
+     * Create a random FalseResponse list from the Per list to use on object<br>
+     * MultipleQuestions.
+     * 
+     * @return FalseResponse ArrayList to MultipleQuiz
+     */
+    public ArrayList<FalseResponse> createFalseRespList(ArrayList<Per> listPer){
         // Locals
-        ArrayList<FalseResponses> toReturn = new ArrayList<>();
-        ArrayList<Per> listPer = createPerList();
-        ArrayList<Integer> indexRandom = rc.randomIndex(listPer.size());
-        FalseResponses fr = new FalseResponses();
-        //
-        for (int i = 0; i < listPer.size(); i++) {
+        ArrayList<FalseResponse> toReturn = new ArrayList<>();
+        FalseResponse fr = new FalseResponse();
+        int size = listPer.size();
+        // Loop
+        while (toReturn.size() < size) {
+            int i = rc.nextInt(size);
+            int j = rc.nextInt(size);
+            int k = rc.nextInt(size);
             
+            if (i == j) { j = noEqualInteger(i, j, size); }
+            if (i == k) { k = noEqualInteger(i, k, size); }
+            if (j == k) { k = noEqualInteger(j, k, size); }
+            
+            fr.setFalseResponse1(listPer.get(i).getElementResponse());
+            fr.setFalseResponse2(listPer.get(j).getElementResponse());
+            fr.setFalseResponse3(listPer.get(k).getElementResponse());
+            
+            toReturn.add(fr);
         }
-        
         return toReturn;
+    }
+    
+    /**
+     * Method to check if {@code x} and {@code y} are equals. If true <br>
+     * return a new {@code y} choose.
+     * @param x integer choose before
+     * @param y maybe an integer to choice
+     * @param size sample to choice
+     * @return a integer among size
+     */
+    private int noEqualInteger(int x, int y, int size){
+        while (x == y) {                    
+            y = rc.nextInt(size);
+        }
+        return y;
     }
         
     

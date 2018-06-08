@@ -1,7 +1,7 @@
 
 package questions;
 
-import dataInput.FalseResponses;
+import dataInput.FalseResponse;
 import dataInput.RandomChoice;
 import dataInput.KeyboardEntry;
 import dataInput.MyFileReader;
@@ -25,7 +25,7 @@ public abstract class ABSQuestion {
     public final String URL_ORDINARY = "";
     // Objects
     public ArrayList<Per> listPer;
-    public ArrayList<FalseResponses> falseResponseses;
+    public ArrayList<FalseResponse> falseResponseses;
     public MyFileReader fileReader;
     public RandomChoice randomChoice;
     public KeyboardEntry entry;

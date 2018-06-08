@@ -15,8 +15,9 @@ public abstract class ABSInput {
     // Fields
     
     // Objects
-    
+    public RandomChoice rc;
     // Constructor
     public ABSInput() {
+        rc = new RandomChoice();
     }
 }

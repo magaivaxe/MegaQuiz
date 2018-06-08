@@ -5,6 +5,7 @@
  */
 package mainPack;
 
+import dataInput.FalseResponse;
 import dataInput.MyFileReader;
 import dataOutput.DateTime;
 import questions.HomeQuiz;
@@ -18,6 +19,7 @@ public class Main
     static MyFileReader mfr;
     static DateTime d;
     static HomeQuiz hq;
+    static FalseResponse fr;
     /**
      * @param args the command line arguments
      */
@@ -25,6 +27,8 @@ public class Main
     {
         hq = new HomeQuiz();
         hq.start();
+//        fr = new FalseResponse();
+//        System.out.println(fr.getSizeFalseResponses());
         
         /*
         mfr = new MyFileReader();
