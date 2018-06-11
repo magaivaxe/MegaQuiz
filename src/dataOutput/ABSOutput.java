@@ -14,5 +14,5 @@ import dataInput.MyFileReader;
 public abstract class ABSOutput {
     // Objects
     DateTime dateTime = new DateTime();
-    MyFileReader frOut = new MyFileReader();
+    //MyFileReader frOut = new MyFileReader();
 }

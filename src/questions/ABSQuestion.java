@@ -19,31 +19,25 @@ public abstract class ABSQuestion {
     private String question;
     private String response;
     private String player;
-    public final String URL_CANADA = "";
-    public final String URL_USA = "";
-    public final String URL_COUNTRY_CAPITAL = "";
-    public final String URL_ORDINARY = "";
+    public final String URL_CANADA = "C:\\Users\\mpgsa\\Downloads\\canada.txt";
+    public final String URL_USA = "USA.txt";
+    public final String URL_COUNTRY_CAPITAL = "COUNTRY_CAPITAL.txt";
+    public final String URL_ORDINARY = "ORDINARY.txt";
     // Objects
     public ArrayList<Per> listPer;
     public ArrayList<FalseResponse> falseResponseses;
-    public MyFileReader fileReader;
     public RandomChoice randomChoice;
     public KeyboardEntry entry;
     public Scanner scanner;
     public GameMsg msg;
-    public MultipleQuiz multipleQuiz;
-    public OrdinaryQuiz ordinaryQuiz;
     //Constructor
     public ABSQuestion(){
         listPer = new ArrayList<>();
         falseResponseses = new ArrayList<>();
-        fileReader = new MyFileReader();
         randomChoice = new RandomChoice();
         entry = new KeyboardEntry();
         scanner = new Scanner(System.in);
         msg = new GameMsg();
-        multipleQuiz = new MultipleQuiz();
-        ordinaryQuiz = new OrdinaryQuiz();
     }
     
     /**

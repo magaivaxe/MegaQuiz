@@ -20,10 +20,10 @@ public class RandomChoice extends ABSInput {
     
     /**
      * Method to return a random index ArrayList from a sample ArrayList.<br>
- The index ok is removed from the sample after and the size<br>
+     * The index ok is removed from the sample after and the size<br>
      * decremented.
      * @param listSize - Number of lines to set sample.
-     * @return an Integer number.
+     * @return an List of Integers numbers.
      */
     public ArrayList<Integer> randomIndex(int listSize){
         // Locals
@@ -35,7 +35,7 @@ public class RandomChoice extends ABSInput {
         // Loop to fill ramdom index list
         while (!ok) {
             try {
-                choosen = rd.nextInt(size);
+                choosen = random.nextInt(size);
                 toReturn.add(sample.get(choosen));
                 sample.remove(choosen);
             } catch (Exception e) {
@@ -46,22 +46,67 @@ public class RandomChoice extends ABSInput {
         return toReturn;
     }
     
+    /**
+     * Method to create a random responses positions array to MultipleQuestions
+     * @return an integer array
+     */
     public int [] responsesPositions(){
         // Locals
         int [] toReturn = new int[NUM_MULT_QUESTIONS];
         int size = toReturn.length;
-        toReturn[0] = rd.nextInt(size);
-        // Loop to fill
-        for (int i = 1; i < size; i++) {
-            toReturn[i] = rd.nextInt(size);
-            while (toReturn[0] == toReturn[1] ||
-                   toReturn[0] == toReturn[2] ||
-                   toReturn[0] == toReturn[3] ||
-                   toReturn[1] == toReturn[2] ||
-                   toReturn[1] == toReturn[3] ||
-                   toReturn[2] == toReturn[3]) {                
-                toReturn[i] = rd.nextInt(size);
+        int i, j, k, w;
+        i = random.nextInt(size);
+        j = random.nextInt(size);
+        k = random.nextInt(size);
+        w = random.nextInt(size);
+        // Conditions to assign j values
+        while (i == j || j == k || j == w) {
+            j = random.nextInt(size);
+            while (k == i || k == j || k == w) {
+                k = random.nextInt(size); 
+                while (i == w || j == w || k == w) {
+                    w = random.nextInt(size); 
+                }
             }
+        }
+        toReturn[0] = i; toReturn[1] = j; toReturn[2] = k; toReturn[3] = w; 
+        
+        System.out.println("Test out\n");
+        return toReturn;
+    }
+    
+    /**
+     * Create a random FalseResponse list from the Per list to use on object<br>
+     * MultipleQuestions.
+     * 
+     * @param listPer
+     * @return FalseResponse ArrayList to MultipleQuiz
+     */
+    public ArrayList<FalseResponse> createFalseRespList(ArrayList<Per> listPer){
+        // Locals
+        ArrayList<FalseResponse> toReturn = new ArrayList<>();
+        
+        int size = listPer.size();
+        
+        // Loop to assign random values index to i, j and k 
+        while (toReturn.size() < size) {
+            // New False Responses 
+            FalseResponse fr = new FalseResponse();
+            int i = random.nextInt(size);
+            int j = random.nextInt(size);
+            int k = random.nextInt(size);
+            // Conditions to assign values
+            while (i == j || k == j) {
+                j = random.nextInt(size);
+                while (i == k || j == k) {
+                    k = random.nextInt(size); 
+                }
+            } 
+            fr.setFalseResponse1(listPer.get(i).getElementResponse());
+            fr.setFalseResponse2(listPer.get(j).getElementResponse());
+            fr.setFalseResponse3(listPer.get(k).getElementResponse());
+            
+            toReturn.add(fr);
         }
         return toReturn;
     }

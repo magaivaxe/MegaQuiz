@@ -6,22 +6,22 @@
 package dataInput;
 
 import dataOutput.ScoreApp;
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Class to read the text files converse it to ArrayList.
  * @author Marcos Gomes
  */
-public class MyFileReader extends ABSInput{
+public class MyFileReader {
     //Fields
-    private String url_path = "";
+    private String url_path;
     // Objects
     
     //Contructor
-    public MyFileReader(){
-        super();
+    public MyFileReader(String url_path){
+        this.url_path = url_path;
     }
     
     /**
@@ -34,50 +34,22 @@ public class MyFileReader extends ABSInput{
     public ArrayList<Per> createPerList() {
         //Locals
         ArrayList<Per> toReturn = new ArrayList<>();
-        Per per = new Per();
         //Try reader
-        try(BufferedReader br = new BufferedReader(new FileReader(url_path))){
-            String currentLine;
-            //Loop to read lines
-            while ((currentLine = br.readLine()) != null){
+        try {
+            File file = new File(url_path);
+            Scanner scanner = new Scanner(file);
+            //
+            int i = 0;
+            while (scanner.hasNextLine()){
+                Per per = new Per();
+                String currentLine = scanner.nextLine();
                 String [] line = currentLine.split(",");
                 per.setElementQuestion(line[0]);
                 per.setElementResponse(line[1]);
                 toReturn.add(per);
             }
-        } catch (Exception e) {}
-        
-        return toReturn;
-    }
-    
-    /**
-     * Create a random FalseResponse list from the Per list to use on object<br>
-     * MultipleQuestions.
-     * 
-     * @return FalseResponse ArrayList to MultipleQuiz
-     */
-    public ArrayList<FalseResponse> createFalseRespList(ArrayList<Per> listPer){
-        // Locals
-        ArrayList<FalseResponse> toReturn = new ArrayList<>();
-        FalseResponse fr = new FalseResponse();
-        int size = listPer.size();
-        //
-        while (toReturn.size() < size) {
-            int i = rd.nextInt(size);
-            int j = rd.nextInt(size);
-            int k = rd.nextInt(size);
-            
-            while (i == j || i == k || j == k) {
-                // Conditions to assign values
-                if (i == j) { j = noEqualsIntegers(i, j, size); }
-                if (i == k) { k = noEqualsIntegers(i, k, size); }
-                if (j == k) { k = noEqualsIntegers(j, k, size); }
-            }
-            fr.setFalseResponse1(listPer.get(i).getElementResponse());
-            fr.setFalseResponse2(listPer.get(j).getElementResponse());
-            fr.setFalseResponse3(listPer.get(k).getElementResponse());
-            
-            toReturn.add(fr);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return toReturn;
     }
@@ -93,6 +65,4 @@ public class MyFileReader extends ABSInput{
         return toReturn;
     }
 
-    public void setURL(String URL_FILE) {this.url_path = URL_FILE;}
-    
 }

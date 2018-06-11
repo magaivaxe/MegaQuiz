@@ -25,18 +25,10 @@ public class Main
      */
     public static void main(String[] args)
     {
+        
         hq = new HomeQuiz();
         hq.start();
-//        fr = new FalseResponse();
-//        System.out.println(fr.getSizeFalseResponses());
-        
-        /*
-        mfr = new MyFileReader();
-        d = new DateTime();
-        mfr.setURL("/Users/sire_marcos/projects/java_netbeans/MegaQuiz/files/fixes.txt");
-        System.out.println(mfr.perList().get(0).getElementQuestion());
-        System.out.println(d.getCurrentDate() +" " + d.getCurrentTime());
-        */
+  
     }
     
 }

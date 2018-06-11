@@ -8,8 +8,15 @@ public class HomeQuiz extends ABSQuestion {
     // Fields
     private String str;
     private int chooseNumber;
+    //
+    private MultipleQuiz multipleQuiz;
+    private OrdinaryQuiz ordinaryQuiz;
     // Constructor
-    public HomeQuiz(){super();}
+    public HomeQuiz(){
+        super();
+        multipleQuiz = new MultipleQuiz();
+        ordinaryQuiz = new OrdinaryQuiz();
+    }
     
     /**
      * Method to start the game
@@ -45,8 +52,8 @@ public class HomeQuiz extends ABSQuestion {
      */
     private boolean check(){
         try {
-                chooseNumber = Integer.parseInt(str);
-                return chooseNumber <= 4 || chooseNumber >= 1;
+            chooseNumber = Integer.parseInt(str);
+            return chooseNumber <= 4 || chooseNumber >= 1;
         } catch (NumberFormatException e) {
             return false;
         }
@@ -60,17 +67,16 @@ public class HomeQuiz extends ABSQuestion {
     private void settings(){
         switch(chooseNumber){
             case 1:
-                fileReader.setURL(URL_CANADA);
-                multipleQuiz.startMultiple();
+                multipleQuiz.startMultiple(URL_CANADA);
                 break;
             case 2:
-                fileReader.setURL(URL_USA);
+                //fileReader.setURL(URL_USA);
                 break;
             case 3:
-                fileReader.setURL(URL_COUNTRY_CAPITAL);
+                //fileReader.setURL(URL_COUNTRY_CAPITAL);
                 break;
             case 4:
-                fileReader.setURL(URL_ORDINARY);
+                //fileReader.setURL(URL_ORDINARY);
                 break;
         }
     }

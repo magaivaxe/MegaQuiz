@@ -6,6 +6,7 @@
 package dataInput;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
@@ -15,10 +16,10 @@ public abstract class ABSInput {
     // Fields
     final int NUM_MULT_QUESTIONS = 4;
     // Objects
-    public Random rd;
+    public Random random;
     // Constructor
     public ABSInput() {
-        rd = new Random();
+        random = new Random();
     }
     
     /**
@@ -32,7 +33,7 @@ public abstract class ABSInput {
     public int noEqualsIntegers(int x, int y, int size){
         //
         while (x == y) {                    
-            y = rd.nextInt(size);
+            y = random.nextInt(size);
         }
         return y;
     }

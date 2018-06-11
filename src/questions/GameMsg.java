@@ -33,4 +33,8 @@ class GameMsg {
         "\nEnter a number ";
     final String ERROR2 = 
         " among the options!";
+    final String QUESTION = 
+        "\n What is the ";
+    final String RESPONSE = 
+        " capital?\n";
 }
