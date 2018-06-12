@@ -19,25 +19,18 @@ public class ScoreApp {
         hight_score = 0;
     }
 
-    public int getScore() {
-        return score;
-    }
+    public int getScore() {return score;}
 
-    public void setScore() {
-        this.score++;
-    }
+    public void setScore() {this.score++;}
     
+    public void setScoreToZero() {this.score = 0;}
     
-
-    public int getHight_score() {
-        return hight_score;
-    }
+    public int getHight_score() {return hight_score;}
 
     public void setHight_score() {
         if (this.score > this.hight_score) {
             this.hight_score = this.score;
         }
-        
     }
 
 }

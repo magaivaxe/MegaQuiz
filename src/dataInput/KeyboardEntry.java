@@ -2,6 +2,8 @@ package dataInput;
 
 import java.util.NoSuchElementException;
 import questions.HomeQuiz;
+import questions.MultipleQuiz;
+import questions.OrdinaryQuiz;
 
 /**
  * Use this class for customs entries as conditions, booleans and Strings.
@@ -50,15 +52,36 @@ public class KeyboardEntry extends ABSInput{
      */
     private void checkMessage(String entry){
         if (entry.equalsIgnoreCase(EXIT)) {
+            exitWriteScore();
             print("Goodbye " + HomeQuiz.currentHomeQuiz.getPlayer());
             Runtime.getRuntime().exit(STATUS_EXIT);
         } else if (entry.equalsIgnoreCase(CHANGE_GAME)) {
+            exitWriteScore();
             HomeQuiz.currentHomeQuiz.mainMenu();
         } else if (entry.equalsIgnoreCase(CHANGE_PLAYER)) {
+            exitWriteScore();
             print("Goodbye " + HomeQuiz.currentHomeQuiz.getPlayer());
             HomeQuiz.currentHomeQuiz.start();
         }
     }
     
-    
+    /**
+     * Write player data when player exit.
+     */
+    private void exitWriteScore(){
+        int n = HomeQuiz.currentHomeQuiz.getChooseNumber();
+        if ( n == 1 || n == 2 || n == 3) {
+            MultipleQuiz.currentMultipleQuiz
+                .myFileWriter.lineWriter(
+                    MultipleQuiz.currentMultipleQuiz.getPlayer(),
+                    MultipleQuiz.currentMultipleQuiz.scoreApp.getScore()
+                );
+        } else {
+            OrdinaryQuiz.currentOrdinaryQuiz
+                .myFileWriter.lineWriter(
+                    OrdinaryQuiz.currentOrdinaryQuiz.getPlayer(),
+                    OrdinaryQuiz.currentOrdinaryQuiz.scoreApp.getScore()
+                );
+        }
+    }
 }

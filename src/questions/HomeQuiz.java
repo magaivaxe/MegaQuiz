@@ -71,7 +71,11 @@ public class HomeQuiz extends ABSQuestion {
 
     public void setPlayer(String player) {this.player = player;}
     
+    public int getChooseNumber() { return chooseNumber;}
+    
     // Setters and Getters =====================================================
+
+    
 
     
 }

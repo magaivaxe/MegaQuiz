@@ -1,6 +1,7 @@
 
 package mainPack;
 
+import dataOutput.MyFileWriter;
 import questions.HomeQuiz;
 
 /**
@@ -14,6 +15,5 @@ public class Main
     {
         HomeQuiz hq = new HomeQuiz();
         hq.start();
-        
     }
 }

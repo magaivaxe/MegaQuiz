@@ -12,6 +12,8 @@ import dataInput.MyFileReader;
  * @author Marcos Gomes
  */
 public class MultipleQuiz extends HomeQuiz {
+    // Fields
+    public static MultipleQuiz currentMultipleQuiz;
     // Constructor
     public MultipleQuiz() { }
     
@@ -19,8 +21,9 @@ public class MultipleQuiz extends HomeQuiz {
     public void startMegaQuiz(String url_path){
         // Local file reader
         MyFileReader fileReader = new MyFileReader(url_path);
-        // Clear lists before use
+        // Clear lists and score to 0 before use
         perList.clear(); indexList.clear(); falseResponses.clear();
+        scoreApp.setScoreToZero();
         // Fill the lists
         perList = fileReader.createPerList();
         falseResponses = randomChoice.createFalseRespList(perList);
@@ -37,13 +40,16 @@ public class MultipleQuiz extends HomeQuiz {
             // Responses on differents positions
             String [] arrayResponses = setArrayResponses();
             printResponses(arrayResponses);
+            // Set the current to write score
+            currentMultipleQuiz = this;
             // Enter user response
-            String entry = keyboardEntry.readString();
+            String entryResp = keyboardEntry.readString();
             // Check true response
-            if (keyboardEntry.checkNumber(entry, 0, 3)) {
-                if (checkResponse(entry, arrayResponses)){
+            if (keyboardEntry.checkNumber(entryResp, 0, 3)) {
+                if (checkResponse(entryResp, arrayResponses)){
                     print("Correct " + currentHomeQuiz.getPlayer() + "!");
-                    // TODO score
+                    scoreApp.setScore();
+                    print("Score: " + scoreApp.getScore());
                     current++;
                 } else {
                     print("False");
@@ -53,6 +59,8 @@ public class MultipleQuiz extends HomeQuiz {
                 msgError();
             }
         }
+        myFileWriter.lineWriter(currentHomeQuiz.getPlayer(), scoreApp.getScore());
+        mainMenu();
     }
     
     /**

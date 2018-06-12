@@ -5,6 +5,8 @@ import dataInput.FalseResponse;
 import dataInput.RandomChoice;
 import dataInput.KeyboardEntry;
 import dataInput.Per;
+import dataOutput.MyFileWriter;
+import dataOutput.ScoreApp;
 import java.util.ArrayList;
 
 /**
@@ -35,6 +37,8 @@ public abstract class ABSQuestion {
     public KeyboardEntry entry;
     public KeyboardEntry keyboardEntry;
     public GameMsg msg;
+    public MyFileWriter myFileWriter;
+    public ScoreApp scoreApp;
     //Constructor
     public ABSQuestion(){
         perList = new ArrayList<>();
@@ -44,6 +48,8 @@ public abstract class ABSQuestion {
         entry = new KeyboardEntry();
         keyboardEntry = new KeyboardEntry();
         msg = new GameMsg();
+        myFileWriter = new MyFileWriter();
+        scoreApp = new ScoreApp();
     }
     
     /**
@@ -59,6 +65,10 @@ public abstract class ABSQuestion {
         print(msg.ERROR1 + msg.ERROR2);
     }
     
+    /**
+     * Show questions and compare with responses
+     * @param url_path Path to files
+     */
     public void startMegaQuiz(String url_path){
         
     }
