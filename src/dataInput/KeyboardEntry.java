@@ -1,23 +1,25 @@
 package dataInput;
 
 import java.util.NoSuchElementException;
+import questions.HomeQuiz;
 
 /**
  * Use this class for customs entries as conditions, booleans and Strings.
  * @author Marcos Gomes
  */
 public class KeyboardEntry extends ABSInput{
-    // Objects
     // Constructor
     public KeyboardEntry(){ super(); }
     
+    /**
+     * 
+     * @return a String entered on terminal
+     */
     public String readString() {
         // Locals
         try {
             String entry = sc.nextLine();
-            if (entry.equalsIgnoreCase(EXIT)) {
-                Runtime.getRuntime().exit(STATUS_EXIT);
-            }
+            checkMessage(entry);
             return entry;
         } catch (NoSuchElementException e) {
             return "-1";
@@ -42,6 +44,21 @@ public class KeyboardEntry extends ABSInput{
         }
     }
     
+    /**
+     * To check if the commands was entered
+     * @param entry String entered in terminal
+     */
+    private void checkMessage(String entry){
+        if (entry.equalsIgnoreCase(EXIT)) {
+            print("Goodbye " + HomeQuiz.currentHomeQuiz.getPlayer());
+            Runtime.getRuntime().exit(STATUS_EXIT);
+        } else if (entry.equalsIgnoreCase(CHANGE_GAME)) {
+            HomeQuiz.currentHomeQuiz.mainMenu();
+        } else if (entry.equalsIgnoreCase(CHANGE_PLAYER)) {
+            print("Goodbye " + HomeQuiz.currentHomeQuiz.getPlayer());
+            HomeQuiz.currentHomeQuiz.start();
+        }
+    }
     
     
 }

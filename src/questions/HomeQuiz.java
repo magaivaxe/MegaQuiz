@@ -9,8 +9,10 @@ public class HomeQuiz extends ABSQuestion {
     private String entry;
     private int chooseNumber;
     private String player;
+    public static HomeQuiz currentHomeQuiz;
     // Constructor
-    public HomeQuiz(){  }
+    public HomeQuiz(){ 
+    }
     
     /**
      * Method to start the game
@@ -26,7 +28,7 @@ public class HomeQuiz extends ABSQuestion {
     /**
      * Method to choice on mainMenu game
      */
-    private void mainMenu(){
+    public void mainMenu(){
         print(getPlayer() + ", " + msg.MSG_CHOICE);
         entry = keyboardEntry.readString();
         if (keyboardEntry.checkNumber(entry, 1, 4)) {
@@ -45,6 +47,7 @@ public class HomeQuiz extends ABSQuestion {
      */
     private void settings(){
         // Locals
+        currentHomeQuiz = this;
         MultipleQuiz multipleQuiz = new MultipleQuiz();
         OrdinaryQuiz ordinaryQuiz = new OrdinaryQuiz();
         switch(chooseNumber){

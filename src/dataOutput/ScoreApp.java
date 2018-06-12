@@ -9,38 +9,35 @@ package dataOutput;
 public class ScoreApp {
     // Fields
     private int hight_score;
+    private int score;
     // Objects
-    private String player;
     /**
      * Constructor to get and set values from the files and list
      */
-    public ScoreApp() {}
+    public ScoreApp() {
+        score = 0;
+        hight_score = 0;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore() {
+        this.score++;
+    }
+    
+    
 
     public int getHight_score() {
         return hight_score;
     }
 
-    public void setHight_score(int hight_score) {
-        this.hight_score = hight_score;
+    public void setHight_score() {
+        if (this.score > this.hight_score) {
+            this.hight_score = this.score;
+        }
+        
     }
 
-    public String getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(String player) {
-        this.player = player;
-    }
-
-    
-
-   
-    
-    
-    
-
-    
-    
-    
-    
 }

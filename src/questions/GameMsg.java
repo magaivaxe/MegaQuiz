@@ -14,7 +14,9 @@ class GameMsg {
     public GameMsg() {}
     // Final fields - Messages
     final String LINE = "\n------------------------------------------\n";
-    final String INSTRUCTIONS = "To exit enter: \"exit\"";
+    final String INSTRUCTIONS = "\tTo exit enter: \"exit\"\n" + 
+                                "\tTo change game enter: \"change\"\n" +
+                                "\tTo change player enter: \"change player\"";
     final String MSG_WELCOME = 
         "\n\n" + LINE +
         "Welcome to Mega Quiz! \n" +

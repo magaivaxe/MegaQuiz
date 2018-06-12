@@ -12,19 +12,27 @@ import java.util.Scanner;
  *
  * @author mpgsa
  */
-public abstract class ABSInput {
+public abstract class ABSInput{
     // Fields
     final int NUM_MULT_QUESTIONS = 4;
     final int STATUS_EXIT = 0;
     final String EXIT = "exit";
+    final String CHANGE_GAME = "change";
+    final String CHANGE_PLAYER = "change player";
     // Objects
     public Random random;
-    Scanner sc;
+    public Scanner sc;
     // Constructor
     public ABSInput() {
         random = new Random();
         sc = new Scanner(System.in);
     }
+    
+    /**
+     * To print data on terminal.
+     * @param text - Text to print;
+     */
+    public void print(String text){ System.out.println(text);}
     
     /**
      * Method to check if {@code x} and {@code y} are equals. If true <br>

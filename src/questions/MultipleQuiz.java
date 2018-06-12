@@ -42,7 +42,7 @@ public class MultipleQuiz extends HomeQuiz {
             // Check true response
             if (keyboardEntry.checkNumber(entry, 0, 3)) {
                 if (checkResponse(entry, arrayResponses)){
-                    print("Correct");
+                    print("Correct " + currentHomeQuiz.getPlayer() + "!");
                     // TODO score
                     current++;
                 } else {
