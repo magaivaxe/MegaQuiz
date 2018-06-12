@@ -36,18 +36,20 @@ public class MultipleQuiz extends ABSQuestion {
             String [] arrayResponses = setArrayResponses();
             printResponses(arrayResponses);
             // Enter user response
-            String str = keyboardEntry.readString();
+            String entry = keyboardEntry.readString();
             // Check true response
-            if (keyboardEntry.checkNumber(str, 0, 3)) {
-                int itemChoose = Integer.parseInt(str);
-                if (arrayResponses[itemChoose].equalsIgnoreCase(getTrueResponse())){
-                    System.out.println("Correct");
+            if (keyboardEntry.checkNumber(entry, 0, 3)) {
+                if (checkResponse(entry, arrayResponses)){
+                    print("Correct");
                     // TODO score
+                    current++;
+                } else {
+                    print("False");
+                    current++;
                 }
             }else{
-                System.out.println("Enter value");
+                msgError();
             }
-            current++;
         }
     }
     
@@ -97,7 +99,4 @@ public class MultipleQuiz extends ABSQuestion {
         }
     }
     
-    private void checkCorrect(){
-        
-    }
 }

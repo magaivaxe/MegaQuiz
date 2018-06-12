@@ -56,7 +56,16 @@ public abstract class ABSQuestion {
         print(msg.ERROR1 + msg.ERROR2);
     }
     
-    
+    /**
+     * To check true or false the entry values
+     * @param entry Value
+     * @param arrayResponse possible responses
+     * @return 
+     */
+    public boolean checkResponse(String entry, String [] arrayResponse){
+        int itemChoose = Integer.parseInt(entry);
+        return arrayResponse[itemChoose].equalsIgnoreCase(getTrueResponse());
+    }
 
     public String getQuestion() { return question;}
 

@@ -32,7 +32,7 @@ class GameMsg {
     final String ERROR1 = 
         "\nEnter a number ";
     final String ERROR2 = 
-        " among the options!";
+        "among the options!";
     final String START_QUESTION = 
         "\n What is the ";
     final String END_QUESTION = 
