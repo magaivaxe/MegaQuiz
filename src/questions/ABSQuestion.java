@@ -34,7 +34,6 @@ public abstract class ABSQuestion {
     public ArrayList<FalseResponse> falseResponses;
     public ArrayList<Integer> indexList;
     public RandomChoice randomChoice;
-    public KeyboardEntry entry;
     public KeyboardEntry keyboardEntry;
     public GameMsg msg;
     public MyFileWriter myFileWriter;
@@ -45,7 +44,6 @@ public abstract class ABSQuestion {
         falseResponses = new ArrayList<>();
         indexList = new ArrayList<>();
         randomChoice = new RandomChoice();
-        entry = new KeyboardEntry();
         keyboardEntry = new KeyboardEntry();
         msg = new GameMsg();
         myFileWriter = new MyFileWriter();

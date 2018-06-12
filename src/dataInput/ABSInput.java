@@ -33,20 +33,4 @@ public abstract class ABSInput{
      * @param text - Text to print;
      */
     public void print(String text){ System.out.println(text);}
-    
-    /**
-     * Method to check if {@code x} and {@code y} are equals. If true <br>
-     * return a new {@code y} choose.
-     * @param x integer choose before
-     * @param y maybe an integer to choice
-     * @param size sample to choice
-     * @return a integer among size
-     */
-    public int noEqualsIntegers(int x, int y, int size){
-        //
-        while (x == y) {                    
-            y = random.nextInt(size);
-        }
-        return y;
-    }
 }

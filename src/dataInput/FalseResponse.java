@@ -41,9 +41,4 @@ public class FalseResponse {
     public void setFalseResponse3(String falseResponse3) {
         this.falseResponse3 = falseResponse3;
     }
-    
-    public int getSizeFalseResponses(){
-        return this.getClass().getDeclaredFields().length;
-    }
-    
 }
