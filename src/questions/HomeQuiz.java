@@ -24,7 +24,7 @@ public class HomeQuiz extends ABSQuestion {
     public void start(){
         print(msg.MSG_WELCOME);
         //Scanner the player name
-        setPlayer(scanner.next());
+        setPlayer(keyboardEntry.readString());
         print("\nWelcome " + getPlayer() + "!");
         mainMenu();
     }
@@ -34,8 +34,9 @@ public class HomeQuiz extends ABSQuestion {
      */
     private void mainMenu(){
         print(getPlayer() + ", " + msg.MSG_CHOICE);
-        str = scanner.next();
-        if (check()) {
+        str = keyboardEntry.readString();
+        if (keyboardEntry.check(str, 1, 4)) {
+            chooseNumber = Integer.parseInt(str);
             settings();
         }else{
             msgError();
@@ -43,21 +44,6 @@ public class HomeQuiz extends ABSQuestion {
         }
     }
     
-    
-    /**
-     * Method to convert a string number to integer. If it isn't possible<br>
-     * return false. If it is possible check the number range {@code 0 < n < 5}
-     * <br> to return true or false.
-     * @return a boolean
-     */
-    private boolean check(){
-        try {
-            chooseNumber = Integer.parseInt(str);
-            return chooseNumber <= 4 || chooseNumber >= 1;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
     
     /**
      * Method to chose the path to game:<br>

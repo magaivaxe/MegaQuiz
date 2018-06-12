@@ -31,7 +31,7 @@ public class MultipleQuiz extends ABSQuestion {
         int current = 0;
         while (current < size) {
             // Presentation
-            print("Question " + current + ": ");
+            print("\nQuestion " + current + ": ");
             // Question
             print(msg.QUESTION + 
                 listPer.get(iList.get(current)).getElementQuestion() +
@@ -50,7 +50,16 @@ public class MultipleQuiz extends ABSQuestion {
                     "\t" + i + ")" + responses[i]
                 );
             }
-            
+            // Enter the value
+            String str = keyboardEntry.readString();
+            if (keyboardEntry.check(str, 0, 3)) {
+                int z = Integer.parseInt(str);
+                if (responses[positions[z]] == responses[positions[0]]) {
+                    System.out.println("Correct");
+                }
+            }else{
+                System.out.println("Enter value");
+            }
             
             
             current++;

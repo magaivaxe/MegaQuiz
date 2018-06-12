@@ -71,7 +71,6 @@ public class RandomChoice extends ABSInput {
         }
         toReturn[0] = i; toReturn[1] = j; toReturn[2] = k; toReturn[3] = w; 
         
-        System.out.println("Test out\n");
         return toReturn;
     }
     

@@ -1,6 +1,5 @@
 package dataInput;
 
-import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -16,35 +15,32 @@ public class KeyboardEntry {
         sc = new Scanner(System.in);
     }
     
-    public String readString() throws NoSuchElementException {
+    public String readString() {
         // Locals
         String toReturn;
         // Try assign
-        toReturn = sc.nextLine();
-        return toReturn;
+        try {
+            return toReturn = sc.nextLine();
+        } catch (NoSuchElementException e) {
+            return "-1";
+        }
     }
     
-    public int readInteger() throws InputMismatchException {
-        // Locals
-        int toReturn;
-        // Try assign
-        toReturn = sc.nextInt();
-        return toReturn;
+    /**
+     * Method to convert a string number to integer. If it isn't possible<br>
+     * return false. If it is possible check the number range {@code 0 < n < 5}
+     * <br> to return true or false.
+     * @return a boolean
+     */
+    public boolean check(String str, int inferiorLimit, int superLimit){
+        try {
+            int chooseNumber = Integer.parseInt(str);
+            return chooseNumber <= superLimit || chooseNumber >= inferiorLimit;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
     
-    public double readDouble() throws InputMismatchException {
-        // Locals
-        double toReturn;
-        // Try assign
-        toReturn = sc.nextDouble();
-        return toReturn;
-    }
     
-    public float readFloat() throws InputMismatchException {
-        // Locals
-        float toReturn;
-        // Try assign
-        toReturn = sc.nextFloat();
-        return toReturn;
-    }
+    
 }

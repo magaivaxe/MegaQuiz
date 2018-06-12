@@ -28,7 +28,7 @@ public abstract class ABSQuestion {
     public ArrayList<FalseResponse> falseResponseses;
     public RandomChoice randomChoice;
     public KeyboardEntry entry;
-    public Scanner scanner;
+    public KeyboardEntry keyboardEntry;
     public GameMsg msg;
     //Constructor
     public ABSQuestion(){
@@ -36,7 +36,7 @@ public abstract class ABSQuestion {
         falseResponseses = new ArrayList<>();
         randomChoice = new RandomChoice();
         entry = new KeyboardEntry();
-        scanner = new Scanner(System.in);
+        keyboardEntry = new KeyboardEntry();
         msg = new GameMsg();
     }
     
@@ -49,6 +49,8 @@ public abstract class ABSQuestion {
     public void msgError() {
         print(msg.ERROR1 + msg.ERROR2);
     }
+    
+    
 
     public String getQuestion() { return question;}
 
