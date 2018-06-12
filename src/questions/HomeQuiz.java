@@ -35,7 +35,7 @@ public class HomeQuiz extends ABSQuestion {
     private void mainMenu(){
         print(getPlayer() + ", " + msg.MSG_CHOICE);
         str = keyboardEntry.readString();
-        if (keyboardEntry.check(str, 1, 4)) {
+        if (keyboardEntry.checkNumber(str, 1, 4)) {
             chooseNumber = Integer.parseInt(str);
             settings();
         }else{

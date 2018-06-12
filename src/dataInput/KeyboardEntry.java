@@ -17,10 +17,8 @@ public class KeyboardEntry {
     
     public String readString() {
         // Locals
-        String toReturn;
-        // Try assign
         try {
-            return toReturn = sc.nextLine();
+            return sc.nextLine();
         } catch (NoSuchElementException e) {
             return "-1";
         }
@@ -28,14 +26,17 @@ public class KeyboardEntry {
     
     /**
      * Method to convert a string number to integer. If it isn't possible<br>
-     * return false. If it is possible check the number range {@code 0 < n < 5}
-     * <br> to return true or false.
+ return false. If it is possible checkNumber the number {@code n} range 
+     * {@code inf < n < sup} <br> to return true or false.
+     * @param str String to parse to integer
+     * @param inf interval limit to choice
+     * @param sup interval limit to choice
      * @return a boolean
      */
-    public boolean check(String str, int inferiorLimit, int superLimit){
+    public boolean checkNumber(String str, int inf, int sup){
         try {
-            int chooseNumber = Integer.parseInt(str);
-            return chooseNumber <= superLimit || chooseNumber >= inferiorLimit;
+            int n = Integer.parseInt(str);
+            return (n <= sup && n >= inf);
         } catch (NumberFormatException e) {
             return false;
         }

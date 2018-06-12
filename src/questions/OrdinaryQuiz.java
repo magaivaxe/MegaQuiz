@@ -27,7 +27,7 @@ public class OrdinaryQuiz extends ABSQuestion
      */
     private void settins(){
         //Clear if exists data inside
-        listPer.clear();
+        perList.clear();
         //Ordinary questions path to fixes.txt
         //fileReader.setURL(URL_FILE_OQ);
         //Resturn list from reader
