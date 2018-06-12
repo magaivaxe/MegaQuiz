@@ -27,16 +27,24 @@ public class MyFileWriter {
     
     /**
      * Write the current time and date more name and score
+     * @param gameType 1-4. 1- Canada; 2- USA; 3- Countries; 4- Ordinaries;
      * @param name player name
      * @param score player score
      */
-    public void lineWriter(String name, int score) {
+    public void lineWriter(int gameType, String name, int score) {
+        String type;
+        switch (gameType) {
+            case 1: type = "Canada"; break;
+            case 2: type = "USA"; break;
+            case 3: type = "Countries"; break;
+            default: type = "Ordinaries"; break;
+        }
         try (BufferedWriter writer = new BufferedWriter(
                 new FileWriter(file, true))) {
             writer.append(
                 dateTime.getCurrentTime() + "," +
                 dateTime.getCurrentDate() + "," +
-                name + "," + score);
+                type + "," + name + "," + score);
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();

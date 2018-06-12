@@ -59,7 +59,9 @@ public class MultipleQuiz extends HomeQuiz {
                 msgError();
             }
         }
-        myFileWriter.lineWriter(currentHomeQuiz.getPlayer(), scoreApp.getScore());
+        myFileWriter.lineWriter(currentHomeQuiz.getChooseNumber(),
+                                currentHomeQuiz.getPlayer(),
+                                scoreApp.getScore());
         mainMenu();
     }
     

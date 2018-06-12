@@ -2,6 +2,7 @@ package dataInput;
 
 import java.util.NoSuchElementException;
 import questions.HomeQuiz;
+import static questions.HomeQuiz.currentHomeQuiz;
 import questions.MultipleQuiz;
 import questions.OrdinaryQuiz;
 
@@ -71,17 +72,15 @@ public class KeyboardEntry extends ABSInput{
     private void exitWriteScore(){
         int n = HomeQuiz.currentHomeQuiz.getChooseNumber();
         if ( n == 1 || n == 2 || n == 3) {
-            MultipleQuiz.currentMultipleQuiz
-                .myFileWriter.lineWriter(
-                    MultipleQuiz.currentMultipleQuiz.getPlayer(),
-                    MultipleQuiz.currentMultipleQuiz.scoreApp.getScore()
-                );
+            MultipleQuiz.currentMultipleQuiz.myFileWriter.lineWriter(
+                currentHomeQuiz.getChooseNumber(),
+                HomeQuiz.currentHomeQuiz.getPlayer(),
+                MultipleQuiz.currentMultipleQuiz.scoreApp.getScore());
         } else {
-            OrdinaryQuiz.currentOrdinaryQuiz
-                .myFileWriter.lineWriter(
-                    OrdinaryQuiz.currentOrdinaryQuiz.getPlayer(),
-                    OrdinaryQuiz.currentOrdinaryQuiz.scoreApp.getScore()
-                );
+            OrdinaryQuiz.currentOrdinaryQuiz.myFileWriter.lineWriter(
+                currentHomeQuiz.getChooseNumber(),
+                HomeQuiz.currentHomeQuiz.getPlayer(),
+                OrdinaryQuiz.currentOrdinaryQuiz.scoreApp.getScore());
         }
     }
 }
