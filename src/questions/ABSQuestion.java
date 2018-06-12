@@ -19,11 +19,14 @@ public abstract class ABSQuestion {
     private String falseResponse1;
     private String falseResponse2;
     private String falseResponse3;
-    private String player;
-    public final String URL_CANADA = "/Users/sire_marcos/projects/java_netbeans/MegaQuiz/src/files/canada.txt";
-    public final String URL_USA = "USA.txt";
-    public final String URL_COUNTRY_CAPITAL = "COUNTRY_CAPITAL.txt";
-    public final String URL_ORDINARY = "ORDINARY.txt";
+    public final String URL_CANADA = "/Users/sire_marcos/projects/"
+            + "java_netbeans/MegaQuiz/src/files/canada.txt";
+    public final String URL_USA = "/Users/sire_marcos/projects/"
+            + "java_netbeans/MegaQuiz/src/files/USA.txt";
+    public final String URL_COUNTRY_CAPITAL = "/Users/sire_marcos/projects/"
+            + "java_netbeans/MegaQuiz/src/files/pays.txt";
+    public final String URL_ORDINARY = "/Users/sire_marcos/projects/"
+            + "java_netbeans/MegaQuiz/src/files/fixes.txt";
     // Objects
     public ArrayList<Per> perList;
     public ArrayList<FalseResponse> falseResponses;
@@ -56,6 +59,10 @@ public abstract class ABSQuestion {
         print(msg.ERROR1 + msg.ERROR2);
     }
     
+    public void startMegaQuiz(String url_path){
+        
+    }
+    
     /**
      * To check true or false the entry values
      * @param entry Value
@@ -66,7 +73,8 @@ public abstract class ABSQuestion {
         int itemChoose = Integer.parseInt(entry);
         return arrayResponse[itemChoose].equalsIgnoreCase(getTrueResponse());
     }
-
+    
+    // Setters and Getters =====================================================
     public String getQuestion() { return question;}
 
     public void setQuestion(String question) {this.question = question;}
@@ -95,9 +103,7 @@ public abstract class ABSQuestion {
         this.falseResponse3 = falseResponse3;
     }
 
-    public String getPlayer() {return player;}
-
-    public void setPlayer(String player) {this.player = player;}
     
+    // Setters and Getters =====================================================
     
 }

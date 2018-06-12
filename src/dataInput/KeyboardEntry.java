@@ -1,24 +1,24 @@
 package dataInput;
 
 import java.util.NoSuchElementException;
-import java.util.Scanner;
 
 /**
  * Use this class for customs entries as conditions, booleans and Strings.
  * @author Marcos Gomes
  */
-public class KeyboardEntry {
+public class KeyboardEntry extends ABSInput{
     // Objects
-    Scanner sc;
     // Constructor
-    public KeyboardEntry(){
-        sc = new Scanner(System.in);
-    }
+    public KeyboardEntry(){ super(); }
     
     public String readString() {
         // Locals
         try {
-            return sc.nextLine();
+            String entry = sc.nextLine();
+            if (entry.equalsIgnoreCase(EXIT)) {
+                Runtime.getRuntime().exit(STATUS_EXIT);
+            }
+            return entry;
         } catch (NoSuchElementException e) {
             return "-1";
         }

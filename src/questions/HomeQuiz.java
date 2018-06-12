@@ -6,17 +6,11 @@ package questions;
  */
 public class HomeQuiz extends ABSQuestion {
     // Fields
-    private String str;
+    private String entry;
     private int chooseNumber;
-    //
-    private MultipleQuiz multipleQuiz;
-    private OrdinaryQuiz ordinaryQuiz;
+    private String player;
     // Constructor
-    public HomeQuiz(){
-        super();
-        multipleQuiz = new MultipleQuiz();
-        ordinaryQuiz = new OrdinaryQuiz();
-    }
+    public HomeQuiz(){  }
     
     /**
      * Method to start the game
@@ -34,9 +28,9 @@ public class HomeQuiz extends ABSQuestion {
      */
     private void mainMenu(){
         print(getPlayer() + ", " + msg.MSG_CHOICE);
-        str = keyboardEntry.readString();
-        if (keyboardEntry.checkNumber(str, 1, 4)) {
-            chooseNumber = Integer.parseInt(str);
+        entry = keyboardEntry.readString();
+        if (keyboardEntry.checkNumber(entry, 1, 4)) {
+            chooseNumber = Integer.parseInt(entry);
             settings();
         }else{
             msgError();
@@ -44,28 +38,37 @@ public class HomeQuiz extends ABSQuestion {
         }
     }
     
-    
     /**
      * Method to chose the path to game:<br>
      * <ul><li>1-Canada</li><li>2-United States</li>
      * <li>3-Country capital</li><li>4-Ordinary questions</li></ul>
      */
     private void settings(){
+        // Locals
+        MultipleQuiz multipleQuiz = new MultipleQuiz();
+        OrdinaryQuiz ordinaryQuiz = new OrdinaryQuiz();
         switch(chooseNumber){
             case 1:
-                multipleQuiz.startMultiple(URL_CANADA);
+                multipleQuiz.startMegaQuiz(URL_CANADA);
                 break;
             case 2:
-                //fileReader.setURL(URL_USA);
+                multipleQuiz.startMegaQuiz(URL_USA);
                 break;
             case 3:
-                //fileReader.setURL(URL_COUNTRY_CAPITAL);
+                multipleQuiz.startMegaQuiz(URL_COUNTRY_CAPITAL);
                 break;
             case 4:
-                //fileReader.setURL(URL_ORDINARY);
+                ordinaryQuiz.startMegaQuiz(URL_ORDINARY);
                 break;
         }
     }
-   
+    
+    // Setters and Getters =====================================================
+    public String getPlayer() {return player;}
+
+    public void setPlayer(String player) {this.player = player;}
+    
+    // Setters and Getters =====================================================
+
     
 }

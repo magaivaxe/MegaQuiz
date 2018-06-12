@@ -15,11 +15,15 @@ import java.util.Scanner;
 public abstract class ABSInput {
     // Fields
     final int NUM_MULT_QUESTIONS = 4;
+    final int STATUS_EXIT = 0;
+    final String EXIT = "exit";
     // Objects
     public Random random;
+    Scanner sc;
     // Constructor
     public ABSInput() {
         random = new Random();
+        sc = new Scanner(System.in);
     }
     
     /**

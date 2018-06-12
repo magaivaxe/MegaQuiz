@@ -11,11 +11,12 @@ import dataInput.MyFileReader;
  * Class to build and show the multiple questions
  * @author Marcos Gomes
  */
-public class MultipleQuiz extends ABSQuestion {
+public class MultipleQuiz extends HomeQuiz {
     // Constructor
-    public MultipleQuiz() { super(); }
-     
-    public void startMultiple(String url_path){
+    public MultipleQuiz() { }
+    
+    @Override
+    public void startMegaQuiz(String url_path){
         // Local file reader
         MyFileReader fileReader = new MyFileReader(url_path);
         // Clear lists before use
@@ -31,6 +32,7 @@ public class MultipleQuiz extends ABSQuestion {
             // Set current question, true and falses responses to object
             setResponses(current);
             // Print current question
+            print(msg.LINE);
             print(msg.START_QUESTION + getQuestion() + msg.END_QUESTION);
             // Responses on differents positions
             String [] arrayResponses = setArrayResponses();

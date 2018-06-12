@@ -1,10 +1,6 @@
 
 package dataOutput;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-
-
 
 /**
  * Class to return the game score
@@ -15,8 +11,6 @@ public class ScoreApp {
     private int hight_score;
     // Objects
     private String player;
-    private LocalDate date;
-    private LocalTime time;
     /**
      * Constructor to get and set values from the files and list
      */
@@ -38,21 +32,6 @@ public class ScoreApp {
         this.player = player;
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public LocalTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalTime time) {
-        this.time = time;
-    }
     
 
    
