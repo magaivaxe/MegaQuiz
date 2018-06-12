@@ -4,10 +4,8 @@ package questions;
 import dataInput.FalseResponse;
 import dataInput.RandomChoice;
 import dataInput.KeyboardEntry;
-import dataInput.MyFileReader;
 import dataInput.Per;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Class to encapsulate objects and methods to questions package
@@ -19,7 +17,7 @@ public abstract class ABSQuestion {
     private String question;
     private String response;
     private String player;
-    public final String URL_CANADA = "C:\\Users\\mpgsa\\Downloads\\canada.txt";
+    public final String URL_CANADA = "";
     public final String URL_USA = "USA.txt";
     public final String URL_COUNTRY_CAPITAL = "COUNTRY_CAPITAL.txt";
     public final String URL_ORDINARY = "ORDINARY.txt";
